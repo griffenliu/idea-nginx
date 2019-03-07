@@ -198,6 +198,8 @@ public class NginxConfigurationPanel {
         JTextField pidField;
         JTextField globalsField;
 
+        JTextField prefixFiled;
+
         PlatformDependentTools pdt;
 
         public TrickyMediator() {
@@ -228,6 +230,7 @@ public class NginxConfigurationPanel {
             configField.setText("");
             pidField.setText("");
             globalsField.setText("");
+            prefixFiled.setText("");
             removeButton.setEnabled(false);
         }
 
@@ -237,6 +240,7 @@ public class NginxConfigurationPanel {
             configField.setText(descriptor.getConfigPath());
             pidField.setText(descriptor.getPidPath());
             globalsField.setText(descriptor.getGlobals());
+            prefixFiled.setText(descriptor.getPrefixPath());
             removeButton.setEnabled(true);
         }
 
@@ -306,6 +310,7 @@ public class NginxConfigurationPanel {
                 descriptor.setConfigPath(configField.getText());
                 descriptor.setPidPath(pidField.getText());
                 descriptor.setGlobals(globalsField.getText());
+                descriptor.setPrefixPath(prefixFiled.getText());
                 serverList.updateUI();
             }
         }

@@ -37,6 +37,7 @@ public class NginxServerDescriptor implements Cloneable {
     private String globals = "";
     private String httpLogPath = "";
     private String errorLogPath = "";
+    private String prefixPath = "";
 
     public NginxServerDescriptor() {
         id = "nginx.descriptor." + System.currentTimeMillis();
@@ -107,6 +108,13 @@ public class NginxServerDescriptor implements Cloneable {
 
     public void setErrorLogPath(String errorLogPath) {
         this.errorLogPath = errorLogPath;
+    }
+
+    public String getPrefixPath(){
+        return prefixPath;
+    }
+    public void setPrefixPath(String prefixPath){
+        this.prefixPath = prefixPath;
     }
 
     @Override

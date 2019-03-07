@@ -63,4 +63,12 @@ public interface PlatformDependentTools {
             super(e);
         }
     }
+    public static String[] getCommandWithoutGlobals(NginxServerDescriptor descriptor){
+        String[] commandWithoutGlobals = new String[]{descriptor.getExecutablePath(), "-c", descriptor.getConfigPath()};
+        String prefix = descriptor.getPrefixPath();
+        if(prefix!=null && prefix.trim().length()>0){
+            commandWithoutGlobals = new String[]{descriptor.getExecutablePath(), "-p", descriptor.getPrefixPath(), "-c", descriptor.getConfigPath()};
+        }
+        return commandWithoutGlobals;
+    }
 }

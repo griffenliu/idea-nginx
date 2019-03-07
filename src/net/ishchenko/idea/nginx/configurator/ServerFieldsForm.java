@@ -40,6 +40,7 @@ public class ServerFieldsForm {
     private ComponentWithBrowseButton<JTextField> configurationField;
     private ComponentWithBrowseButton<JTextField> pidField;
     private JTextField globalsField;
+    private JTextField prefixField;
 
 
     public ServerFieldsForm(final NginxConfigurationPanel.TrickyMediator mediator) {
@@ -61,6 +62,7 @@ public class ServerFieldsForm {
         configurationField.getChildComponent().addKeyListener(syncListener);
         pidField.getChildComponent().addKeyListener(syncListener);
         globalsField.addKeyListener(syncListener);
+        prefixField.addKeyListener(syncListener);
 
         executableField.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -97,6 +99,7 @@ public class ServerFieldsForm {
         mediator.configField = configurationField.getChildComponent();
         mediator.pidField = pidField.getChildComponent();
         mediator.globalsField = globalsField;
+        mediator.prefixFiled = prefixField;
 
     }
 
@@ -121,7 +124,7 @@ public class ServerFieldsForm {
     private void $$$setupUI$$$() {
         createUIComponents();
         panel = new JPanel();
-        panel.setLayout(new FormLayout("fill:max(d;4px):noGrow,left:4dlu:noGrow,fill:d:grow", "center:d:noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow"));
+        panel.setLayout(new FormLayout("fill:max(d;4px):noGrow,left:4dlu:noGrow,fill:d:grow", "center:d:noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow"));
         nameField = new JTextField();
         nameField.setText("");
         CellConstraints cc = new CellConstraints();
@@ -135,17 +138,22 @@ public class ServerFieldsForm {
         panel.add(executableField, cc.xy(3, 3, CellConstraints.FILL, CellConstraints.DEFAULT));
         final JLabel label3 = new JLabel();
         this.$$$loadLabelText$$$(label3, ResourceBundle.getBundle("net/ishchenko/idea/nginx/NginxBundle").getString("run.configuration"));
-        panel.add(label3, cc.xy(1, 5));
-        panel.add(configurationField, cc.xy(3, 5, CellConstraints.FILL, CellConstraints.DEFAULT));
+        panel.add(label3, cc.xy(1, 7));
+        panel.add(configurationField, cc.xy(3, 7, CellConstraints.FILL, CellConstraints.DEFAULT));
         final JLabel label4 = new JLabel();
         this.$$$loadLabelText$$$(label4, ResourceBundle.getBundle("net/ishchenko/idea/nginx/NginxBundle").getString("run.globals"));
-        panel.add(label4, cc.xy(1, 9));
+        panel.add(label4, cc.xy(1, 11));
         globalsField = new JTextField();
-        panel.add(globalsField, cc.xy(3, 9, CellConstraints.FILL, CellConstraints.DEFAULT));
+        panel.add(globalsField, cc.xy(3, 11, CellConstraints.FILL, CellConstraints.DEFAULT));
         final JLabel label5 = new JLabel();
         this.$$$loadLabelText$$$(label5, ResourceBundle.getBundle("net/ishchenko/idea/nginx/NginxBundle").getString("run.pidpath"));
-        panel.add(label5, cc.xy(1, 7));
-        panel.add(pidField, cc.xy(3, 7, CellConstraints.FILL, CellConstraints.DEFAULT));
+        panel.add(label5, cc.xy(1, 9));
+        panel.add(pidField, cc.xy(3, 9, CellConstraints.FILL, CellConstraints.DEFAULT));
+        final JLabel label6 = new JLabel();
+        label6.setText("nginx Prefix Directory");
+        panel.add(label6, cc.xy(1, 5));
+        prefixField = new JTextField();
+        panel.add(prefixField, cc.xy(3, 5, CellConstraints.FILL, CellConstraints.DEFAULT));
     }
 
     /**
@@ -181,4 +189,5 @@ public class ServerFieldsForm {
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }
+
 }

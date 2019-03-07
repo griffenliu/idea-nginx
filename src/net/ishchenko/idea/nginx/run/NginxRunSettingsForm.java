@@ -109,6 +109,7 @@ public class NginxRunSettingsForm {
         CellConstraints cc = new CellConstraints();
         panel.add(serverCombo, cc.xy(1, 1));
         configureButton = new JButton();
+        configureButton.setHideActionText(true);
         this.$$$loadButtonText$$$(configureButton, ResourceBundle.getBundle("net/ishchenko/idea/nginx/NginxBundle").getString("run.configureButton"));
         panel.add(configureButton, cc.xy(3, 1));
         final JPanel panel1 = new JPanel();

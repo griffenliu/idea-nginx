@@ -45,7 +45,12 @@ public class LinuxSpecificTools implements PlatformDependentTools {
     }
 
     public String[] getStartCommand(NginxServerDescriptor descriptor) {
-        String[] commandWithoutGlobals = {descriptor.getExecutablePath(), "-c", descriptor.getConfigPath()};
+//        String[] commandWithoutGlobals = new String[]{descriptor.getExecutablePath(), "-c", descriptor.getConfigPath()};
+//        String prefix = descriptor.getPrefixPath();
+//        if(prefix!=null && prefix.trim().length()>0){
+//            commandWithoutGlobals = new String[]{descriptor.getExecutablePath(), "-p", descriptor.getPrefixPath(), "-c", descriptor.getConfigPath()};
+//        }
+        String[] commandWithoutGlobals = PlatformDependentTools.getCommandWithoutGlobals(descriptor);
         String[] globals = getGlobals(descriptor);
         return ArrayUtil.mergeArrays(commandWithoutGlobals, globals);
     }
