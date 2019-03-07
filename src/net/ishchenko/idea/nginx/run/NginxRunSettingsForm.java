@@ -49,7 +49,8 @@ public class NginxRunSettingsForm {
     JTextField httpLogPathField;
     JCheckBox showErrorLogCheckBox;
     JTextField errorLogPathField;
-    private JLabel explanationLabel;
+    JLabel explanationLabel;
+    JTextField prefixField;
 
     public NginxRunSettingsForm(final NginxRunSettingsEditor.Mediator mediator) {
 
@@ -113,7 +114,7 @@ public class NginxRunSettingsForm {
         this.$$$loadButtonText$$$(configureButton, ResourceBundle.getBundle("net/ishchenko/idea/nginx/NginxBundle").getString("run.configureButton"));
         panel.add(configureButton, cc.xy(3, 1));
         final JPanel panel1 = new JPanel();
-        panel1.setLayout(new FormLayout("fill:max(d;4px):noGrow,left:4dlu:noGrow,fill:d:grow", "center:d:grow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow"));
+        panel1.setLayout(new FormLayout("fill:max(d;4px):noGrow,left:4dlu:noGrow,fill:d:grow", "center:d:grow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow"));
         panel.add(panel1, cc.xyw(1, 3, 3));
         panel1.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), ResourceBundle.getBundle("net/ishchenko/idea/nginx/NginxBundle").getString("run.serverinfo")));
         final JLabel label1 = new JLabel();
@@ -121,7 +122,7 @@ public class NginxRunSettingsForm {
         panel1.add(label1, cc.xy(1, 3));
         final JLabel label2 = new JLabel();
         this.$$$loadLabelText$$$(label2, ResourceBundle.getBundle("net/ishchenko/idea/nginx/NginxBundle").getString("run.configuration"));
-        panel1.add(label2, cc.xy(1, 5));
+        panel1.add(label2, cc.xy(1, 7));
         executableField = new JTextField();
         executableField.setEditable(false);
         executableField.setEnabled(true);
@@ -129,21 +130,27 @@ public class NginxRunSettingsForm {
         configurationField = new JTextField();
         configurationField.setEditable(false);
         configurationField.setEnabled(true);
-        panel1.add(configurationField, cc.xy(3, 5, CellConstraints.FILL, CellConstraints.DEFAULT));
+        panel1.add(configurationField, cc.xy(3, 7, CellConstraints.FILL, CellConstraints.DEFAULT));
         final JLabel label3 = new JLabel();
         this.$$$loadLabelText$$$(label3, ResourceBundle.getBundle("net/ishchenko/idea/nginx/NginxBundle").getString("run.globals"));
-        panel1.add(label3, cc.xy(1, 9));
+        panel1.add(label3, cc.xy(1, 11));
         globalsField = new JTextField();
         globalsField.setEditable(false);
         globalsField.setEnabled(true);
-        panel1.add(globalsField, cc.xy(3, 9, CellConstraints.FILL, CellConstraints.DEFAULT));
+        panel1.add(globalsField, cc.xy(3, 11, CellConstraints.FILL, CellConstraints.DEFAULT));
         final JLabel label4 = new JLabel();
         this.$$$loadLabelText$$$(label4, ResourceBundle.getBundle("net/ishchenko/idea/nginx/NginxBundle").getString("run.pidpath"));
-        panel1.add(label4, cc.xy(1, 7));
+        panel1.add(label4, cc.xy(1, 9));
         pidField = new JTextField();
         pidField.setEditable(false);
         pidField.setEnabled(true);
-        panel1.add(pidField, cc.xy(3, 7, CellConstraints.FILL, CellConstraints.DEFAULT));
+        panel1.add(pidField, cc.xy(3, 9, CellConstraints.FILL, CellConstraints.DEFAULT));
+        final JLabel label5 = new JLabel();
+        label5.setText("Prefix Directory");
+        panel1.add(label5, cc.xy(1, 5));
+        prefixField = new JTextField();
+        prefixField.setEditable(false);
+        panel1.add(prefixField, cc.xy(3, 5, CellConstraints.FILL, CellConstraints.DEFAULT));
         final JPanel panel2 = new JPanel();
         panel2.setLayout(new FormLayout("fill:d:noGrow,left:4dlu:noGrow,fill:d:grow", "center:d:noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow"));
         panel.add(panel2, cc.xyw(1, 5, 3));

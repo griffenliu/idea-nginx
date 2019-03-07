@@ -105,6 +105,7 @@ public class NginxRunSettingsEditor extends SettingsEditor<NginxRunConfiguration
                 form.globalsField.setText(descriptor.getGlobals());
                 form.httpLogPathField.setText(descriptor.getHttpLogPath());
                 form.errorLogPathField.setText(descriptor.getErrorLogPath());
+                form.prefixField.setText(descriptor.getPrefixPath());
             } else {
                 form.executableField.setText("");
                 form.configurationField.setText("");
@@ -112,6 +113,7 @@ public class NginxRunSettingsEditor extends SettingsEditor<NginxRunConfiguration
                 form.globalsField.setText("");
                 form.httpLogPathField.setText("");
                 form.errorLogPathField.setText("");
+                form.prefixField.setText("");
             }
         }
 

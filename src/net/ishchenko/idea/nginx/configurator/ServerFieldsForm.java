@@ -150,7 +150,7 @@ public class ServerFieldsForm {
         panel.add(label5, cc.xy(1, 9));
         panel.add(pidField, cc.xy(3, 9, CellConstraints.FILL, CellConstraints.DEFAULT));
         final JLabel label6 = new JLabel();
-        label6.setText("nginx Prefix Directory");
+        label6.setText("Prefix Directory");
         panel.add(label6, cc.xy(1, 5));
         prefixField = new JTextField();
         panel.add(prefixField, cc.xy(3, 5, CellConstraints.FILL, CellConstraints.DEFAULT));

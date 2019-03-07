@@ -121,7 +121,7 @@
           <forms/>
         </constraints>
         <properties>
-          <text value="nginx Prefix Directory"/>
+          <text value="Prefix Directory"/>
         </properties>
       </component>
       <component id="68e66" class="javax.swing.JTextField" binding="prefixField">
